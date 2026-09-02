@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+import io
+import tarfile
+import urllib.request
+from pathlib import Path
+
+
+MOBY_DICK = "https://www.gutenberg.org/files/2701/2701-0.txt"
+REACT = "https://github.com/facebook/react/archive/refs/tags/v19.2.0.tar.gz"
+SIZE = 8 * 1024 * 1024
+ROOT = Path(__file__).resolve().parent.parent
+OUTPUT = ROOT / "inputs" / "bench"
+
+
+def download(url):
+    with urllib.request.urlopen(url) as response:
+        return response.read()
+
+
+def moby_dick():
+    text = download(MOBY_DICK)
+    start = b"*** START OF THE PROJECT GUTENBERG EBOOK"
+    text = text[text.index(start):]
+    start = text.index(b"\n") + 1
+    text = text[start : start + 32 * 1024]
+    while True:
+        try:
+            text.decode("utf-8")
+            break
+        except UnicodeDecodeError:
+            text = text[:-1]
+    (OUTPUT / "moby-dick-32k.txt").write_bytes(text)
+
+
+def react():
+    output = io.BytesIO()
+    archive = tarfile.open(fileobj=io.BytesIO(download(REACT)), mode="r:gz")
+    files = [
+        member
+        for member in archive.getmembers()
+        if member.isfile()
+        and Path(member.name).suffix in {".js", ".jsx", ".mjs", ".cjs"}
+    ]
+    files.sort(key=lambda member: member.name)
+    for member in files:
+        source = archive.extractfile(member).read()
+        output.write(f"\n// {member.name}\n".encode())
+        output.write(source)
+        if output.tell() >= SIZE:
+            break
+
+    text = output.getvalue()[:SIZE]
+    while True:
+        try:
+            text.decode("utf-8")
+            break
+        except UnicodeDecodeError:
+            text = text[:-1]
+    (OUTPUT / "react-19.2.0-8m.js").write_bytes(text)
+
+
+OUTPUT.mkdir(exist_ok=True)
+moby_dick()
+react()

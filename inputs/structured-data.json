@@ -1,0 +1,36 @@
+{
+  "schema": "synthetic-benchmark/v1",
+  "generated_at": "2026-08-30T12:34:56Z",
+  "service": {
+    "name": "token-meter",
+    "enabled": true,
+    "port": 4312,
+    "labels": ["bpe", "fixture", "small"]
+  },
+  "requests": [
+    {
+      "id": "req_01J8K9PQ4M2N7V6X",
+      "path": "/v1/count",
+      "status": 200,
+      "duration_ms": 18.4,
+      "input_bytes": 1024,
+      "token_count": 297,
+      "cached": false
+    },
+    {
+      "id": "req_01J8K9PQ5A3B8W7Y",
+      "path": "/v1/count?model=example",
+      "status": 429,
+      "duration_ms": 0.7,
+      "input_bytes": 4096,
+      "token_count": null,
+      "cached": true
+    }
+  ],
+  "limits": {
+    "max_bytes": 1048576,
+    "window_seconds": 60,
+    "retry_after_seconds": 15
+  },
+  "notes": "Quotes, escapes (\\n), punctuation, booleans, null, arrays, and numbers."
+}

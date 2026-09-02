@@ -1,0 +1,18 @@
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+0000000000000000000000000000000000000000000000000000000000000000
+---------------------------------------------------------------_
+
+wordwordwordwordwordwordwordwordwordwordwordwordwordwordwordword
+word word word word word word word word word word word word word word
+word,word.word/word:word;word|word+word=word_word-word
+
+prefixprefixprefixprefixprefixprefixprefixprefixprefixprefixsuffix
+prefix prefixprefix prefix prefix  prefix   prefix    suffix
+camelCaseBoundaryHTTPServerXMLParserVersion2end
+snake_case_boundary__double__underscore__end
+kebab-case-boundary--double--dash--end
+
+[start]aaaaaaaaaaaaaaaa[end]
+<start>zzzzzzzzzzzzzzzzzzzzzzzz</start>
+line-end-boundary-marker: END

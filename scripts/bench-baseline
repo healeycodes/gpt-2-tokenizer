@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+echo "Rust baseline"
+cargo run --release --quiet --bin bench-baseline

@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+mkdir -p results
+xctrace record --quiet --template 'Time Profiler' \
+    --output results/v3.trace --time-limit 10s --launch -- \
+    target/release/gpt2-tokenizer --bytes \
+    inputs/bench/react-19.2.0-8m.js

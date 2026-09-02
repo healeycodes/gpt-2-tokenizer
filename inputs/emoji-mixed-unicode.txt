@@ -1,0 +1,14 @@
+Status report: build 42 is green, cafe queue is short, and the temperature is
+21 C. A teammate wrote: "Ship after lunch, not before review." 👍
+
+Mixed scripts and symbols: naive -> naïve; resume -> résumé; cafe -> café;
+Straße, İstanbul, Ελληνικά, العربية, हिन्दी, русский. Math: x² + y² = r²;
+approximately 3.14159; arrows -> <- =>; currency $19.95, EUR 17, ¥2400.
+
+Emoji sequences test boundaries: 😀 😅 🤖 🚀 🧪 🔒 ❤️ ☕️ ✨ 🎉
+Family and modifier sequences: 👩‍💻 👨🏽‍🔧 🧑🏾‍🚀 👨‍👩‍👧‍👦
+Flags and signs: 🇺🇸 🇯🇵 🇪🇺 ™️ ©️ ®️ #hashtag @mention
+
+Filename-ish text: report-final_v2.pdf; path=/tmp/café/notes; email=hello+test@example.invalid.
+The point is not linguistic correctness; it is byte length, normalization-sensitive
+characters, punctuation, whitespace, and grapheme clusters in one compact sample.

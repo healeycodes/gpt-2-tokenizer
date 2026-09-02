@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+for option in "" "--fast" "--bytes" "--cache-first" "--tiktoken"; do
+    case "$option" in
+        "") name="Rust baseline" ;;
+        "--fast") name="Heap and neighbours" ;;
+        "--bytes") name="V3 vocabulary first" ;;
+        "--cache-first") name="V3 cache first" ;;
+        "--tiktoken") name="tiktoken-rs" ;;
+    esac
+    printf '%s\n' "$name"
+    cargo run --release --quiet --bin bench-baseline -- $option
+done
+
+printf '%s\n' "Python encoder.py"
+.venv/bin/python scripts/bench-reference.py

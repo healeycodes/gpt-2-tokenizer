@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+for option in "--bytes" "--cache-first" "--no-fast-path" "--std-hash"; do
+    printf '%s\n' "V3 $option"
+    cargo run --release --quiet --bin bench-baseline -- --long-piece $option
+done
+
+printf '%s\n' "tiktoken-rs r50k_base"
+cargo run --release --quiet --bin bench-baseline -- --tiktoken

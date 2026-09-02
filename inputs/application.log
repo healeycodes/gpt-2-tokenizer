@@ -1,0 +1,7 @@
+2026-08-30T12:00:00.014Z INFO  api.request request_id=01J8K9PQ route=/v1/count method=POST bytes=1024 remote=203.0.113.42
+2026-08-30T12:00:00.031Z DEBUG tokenizer.load model=example-bpe merges=50000 vocab=50257 elapsed_ms=16.7
+2026-08-30T12:00:00.034Z INFO  api.response request_id=01J8K9PQ status=200 tokens=297 elapsed_ms=19.3 cache=miss
+2026-08-30T12:00:01.202Z WARN  limiter.near_limit client=demo-client remaining=1 reset_s=58
+2026-08-30T12:00:02.817Z ERROR decode.input request_id=01J8K9PR error="invalid UTF-8 at byte 73" bytes=96
+2026-08-30T12:00:03.001Z INFO  worker.flush batch=8 accepted=7 rejected=1 queue_depth=0
+2026-08-30T12:00:04.550Z INFO  health.check component=tokenizer status=ok version=1.4.2
